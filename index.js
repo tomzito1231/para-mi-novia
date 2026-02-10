@@ -3,70 +3,43 @@ const btnNo = document.querySelector('.botones__btn-no');
 const randomPic = document.querySelector('.random-pics__cats');
 const question = document.querySelector('.question');
 
-const musica = new Audio('/assets/musica/Manu Chao - Me gustas tu.mp3');
+const musica = new Audio('./assets/musica/Manu Chao - Me gustas tu.mp3');
 
-// Si acepta: 
-btnSi.addEventListener('click', ()=>{
-    randomPic.src = '/assets/fotos/0.jpg';
-    question.innerText = ' EEETSO MAMONAAAA, Te amo❤️ ';
+// SI
+btnSi.addEventListener('click', () => {
+    randomPic.src = './assets/fotos/0.jpg';
+    question.innerText = 'EEETSO MAMONAAAA 💖 Te amo ❤️';
     question.classList.add('question-style');
-
 
     btnSi.style.display = 'none';
     btnNo.style.display = 'none';
 
     musica.play();
+});
 
-
-})
-
-
-// Lógica: 
-
+// NO
 let contador = 0;
 
-btnNo.addEventListener('click', ()=>{
+btnNo.addEventListener('click', () => {
+    const fotos = ['2','3','4','5','6'];
 
-        switch (contador) {
-            
-            case 0:
-                btnNo.innerText = 'Segura?';
-                btnSi.classList.add('estilo-1');
-                randomPic.src = '/assets/fotos/2.jpg'
-                break;
-            
-            case 1:
-                btnNo.innerText = 'Segurísima?';
-                btnSi.classList.add('estilo-2');
-                randomPic.src = '/assets/fotos/3.jpg'
-                break;
-        
-            case 2:
-                btnNo.innerText = '-_- :( ?';
-                btnSi.classList.add('estilo-3');
-                randomPic.src = '/assets/fotos/4.jpg'
+    if (contador < fotos.length) {
+        randomPic.src = `./assets/fotos/${fotos[contador]}.jpg`;
+        btnSi.classList.add(`estilo-${contador + 1}`);
+    }
 
-                break;
+    const textos = [
+        '¿Segura?',
+        '¿Segurísima?',
+        '-_- :( ?',
+        'OUUU',
+        'YACHAOMAVARA 💔'
+    ];
 
-            case 3:
-                btnNo.innerText = ' OUUU';
-                btnSi.classList.add('estilo-4');
-                randomPic.src = '/assets/fotos/5.jpg'
+    btnNo.innerText = textos[contador] || btnNo.innerText;
+    contador++;
+});
 
-                break;
-
-            case 4:
-                btnNo.innerText = 'YACHAOMAVARA💔 ';
-                btnSi.classList.add('estilo-5');
-                randomPic.src = '/assets/fotos/6.jpg'
-
-                break;
-
-        }
-
-        contador++
-        
-})
 
 
 
