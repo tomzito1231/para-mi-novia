@@ -7,7 +7,7 @@ const musica = new Audio('./assets/musica/Manu Chao - Me gustas tu.mp3');
 
 // SI
 btnSi.addEventListener('click', () => {
-    randomPic.src = './assets/fotos/0.jpg';
+    randomPic.src = './assets/0.jpg';
     question.innerText = 'EEETSO MAMONAAAA 💖 Te amo ❤️';
     question.classList.add('question-style');
 
@@ -39,6 +39,7 @@ btnNo.addEventListener('click', () => {
     btnNo.innerText = textos[contador] || btnNo.innerText;
     contador++;
 });
+
 
 
 
